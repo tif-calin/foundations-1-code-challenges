@@ -50,7 +50,15 @@ Output:
 */
 
 export function organizePricesByKey(arr) {
-    return {};
+    let ids = arr.map(elem => elem.id);
+    ids.sort();
+
+    const newObj = {};
+    ids.forEach(fruit => {
+        newObj[fruit] = arr.filter(elem => elem.id === fruit)[0].price;
+    })
+
+    return newObj;
 }
 
 /*
@@ -90,7 +98,11 @@ Output:
 */
 
 export function makeAHashMap(arr) {
-    return {};
+    const newObj = {};
+    arr.forEach(obj => {
+        newObj[obj.id] = obj;
+    })
+    return newObj;
 }
 
 
@@ -104,5 +116,10 @@ Output:
 */
 
 export function countByCategory(arr) {
-    return {};
+    const counts = {};
+    arr.forEach(obj => {
+        if (counts[obj.category]) counts[obj.category]++;
+        else counts[obj.category] = 1;
+    })
+    return counts;
 }
