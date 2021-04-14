@@ -21,6 +21,7 @@ Output:
 export function makeReversedArrayOfTypes(arr) {
     const newArr = [];
     arr.reverse().forEach(elem => newArr.push(elem.type));
+    arr.reverse();
     return newArr;
 }
 
